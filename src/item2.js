@@ -1,16 +1,15 @@
 
 
-var Item1Layer = cc.Layer.extend({
-    ctor:function () {
+var Item2Layer = cc.Layer.extend({
+    ctor:function (data) {
 
         this._super();
 
-        var title =new cc.LabelTTF("Item1","",48);
-        title.x = cc.winSize.width/2;
-        title.y = cc.winSize.height*7/8;
-        this.addChild(title);
+        cc.log("Item2Layer:"+data);
+        cc.log("ItemLayer:var1="+var2);
 
         this.initMenu();
+
 
         return true;
     },
@@ -32,14 +31,31 @@ var Item1Layer = cc.Layer.extend({
     back:function(){
         // popScene方法 將場景pop回去
         cc.director.popScene();
-    }
+    },
 });
 
-var Item1Scene = cc.Scene.extend({
-    onEnter:function () {
+var Item2Scene = cc.Scene.extend({
+mydata:null,
+    //建構式 , 物件的初始化
+
+    // 需傳遞參數用ctor
+
+    ctor:function(data){
+        //呼叫父層
         this._super();
-        var layer = new Item1Layer();
+        this.mydata =data;
+        cc.log("Item2Scene:ctor():"+data);
+        var layer = new Item2Layer(data);
         this.addChild(layer);
-    }
+
+    },
+
+    // 不傳參數可以使用onEnter
+
+    // onEnter:function () {
+    //     // this._super();
+    //     cc.log("item2Scene:onEnter()"+this.mydata);
+    //
+    // }
 });
 

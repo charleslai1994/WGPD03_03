@@ -1,9 +1,15 @@
-
-
+//這個變數位置是全域 item2也看得到
+var var2=321;
 var MenuLayer = cc.Layer.extend({
+    item2:null,
     ctor:function () {
 
         this._super();
+
+        var title =new cc.LabelTTF("選單測試","",48);
+        title.x = cc.winSize.width/2;
+        title.y = cc.winSize.height*7/8;
+        this.addChild(title);
 
         this.initMenu();
 
@@ -28,16 +34,18 @@ var MenuLayer = cc.Layer.extend({
     },
 
     doItem1:function(){
-        cc.log("doItem1");
+        // cc.log("doItem1");
+        // 用pushScene方法 , 將場景切換
+        cc.director.pushScene(new Item1Scene());
     },
     doItem2:function(){
-        cc.log("doItem2");
+        cc.director.pushScene(new Item2Scene(100));
     },
     doItem3:function(){
-        cc.log("doItem3");
+        cc.director.pushScene(new Item3Scene());
     },
     doItem4:function(){
-        cc.log("doItem4");
+        cc.director.pushScene(new Item4Scene());
     },
 });
 

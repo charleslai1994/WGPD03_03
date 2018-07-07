@@ -1,11 +1,11 @@
 
 
-var Item1Layer = cc.Layer.extend({
+var Item3Layer = cc.Layer.extend({
     ctor:function () {
 
         this._super();
-
-        var title =new cc.LabelTTF("Item1","",48);
+        cc.log("Item3:ctor()");
+        var title =new cc.LabelTTF("Item3","",48);
         title.x = cc.winSize.width/2;
         title.y = cc.winSize.height*7/8;
         this.addChild(title);
@@ -16,6 +16,7 @@ var Item1Layer = cc.Layer.extend({
     },
 
     initMenu:function(){
+        var next = new cc.MenuItemFont("Next", this.next ,this);
         var back = new cc.MenuItemImage(
             // 放入按鈕的三種狀態
             res.back_normal_png,
@@ -25,21 +26,42 @@ var Item1Layer = cc.Layer.extend({
             this.back, this
         );
 
-        var menu = new cc.Menu(back);
+        var menu = new cc.Menu(next,back);
+        menu.alignItemsHorizontally();
         this.addChild(menu);
     },
 
     back:function(){
         // popScene方法 將場景pop回去
         cc.director.popScene();
+    },
+
+    next:function(){
+        // pushScene方法 將場景轉向Item31
+        cc.director.pushScene(new Item31Scene());
+    },
+
+
+    onEnter:function(){
+        cc.log("Item3:onEnter()");
+    },
+
+    onExit:function(){
+        cc.log("Item3:onExit()");
     }
+
+
 });
 
-var Item1Scene = cc.Scene.extend({
-    onEnter:function () {
+var Item3Scene = cc.Scene.extend({
+    ctor:function(){
         this._super();
-        var layer = new Item1Layer();
+        var layer = new Item3Layer();
         this.addChild(layer);
+    },
+
+    onEnter:function () {
+
     }
 });
 
