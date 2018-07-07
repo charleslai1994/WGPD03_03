@@ -28,8 +28,9 @@ var MenuLayer = cc.Layer.extend({
         var menuItem3 = new cc.MenuItemFont("Item3",this.doItem3,this);
         var menuItem4 = new cc.MenuItemFont("Item4",this.doItem4,this);
         var menuItem5 = new cc.MenuItemFont("Item5",this.doItem5,this);
+        var menuItem6 = new cc.MenuItemFont("Item6",this.doItem6,this);
         // 將文字選單放入主選單
-        var menu = new cc.Menu(menuItem1,menuItem2,menuItem3,menuItem4,menuItem5);
+        var menu = new cc.Menu(menuItem1,menuItem2,menuItem3,menuItem4,menuItem5,menuItem6);
         menu.alignItemsVertically();
         this.addChild(menu);
     },
@@ -50,6 +51,9 @@ var MenuLayer = cc.Layer.extend({
     },
     doItem5:function(){
         cc.director.pushScene(new Item5Scene());
+    },
+    doItem6:function(){
+        cc.director.pushScene(new Item6Scene());
     },
 });
 
