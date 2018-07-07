@@ -27,7 +27,8 @@ var res = {
     back_normal_png:"res/back_normal.png",
     back_selected_png:"res/back_selected.png",
     back_disselect_png:"res/back_disselect.png",
-    bg_jpg:"res/bg.jpg"
+    bg_jpg:"res/bg.jpg",
+    ball_png:"res/ball.png"
 };
 
 var g_resources = [];
