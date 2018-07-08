@@ -16,23 +16,18 @@ var Item7Layer = cc.Layer.extend({
 
 
         this.bricks =[];
-        this.bricksRect=[];
+
         //win.width = 960px
 
-        for(var i=0;i<20;i++){
+        for(var i=0;i<40;i++){
             this.bricks[i] = new cc.Sprite(res.brick_png);
             this.bricks[i].attr({
-                x:this.bricks[i].width*i + this.bricks[i].width/2,
-                y:cc.winSize.height*6/8
+                x:this.bricks[i].width*(i%20) + this.bricks[i].width/2,
+                y:cc.winSize.height*(6-parseInt(i/20))/8
             });
             this.addChild(this.bricks[i]);
 
-            this.bricksRect[i]= new cc.Rect(
-                this.bricks[i].x-this.bricks[i].width/2-this.ball.width/2,
-                this.bricks[i].y-this.bricks[i].height/2-this.ball.height/2,
-                this.bricks[i].width+this.ball.width,
-                this.bricks[i].height+this.ball.height
-            );
+
         }
 
 
