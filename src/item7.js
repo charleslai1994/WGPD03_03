@@ -11,7 +11,7 @@ var Item7Layer = cc.Layer.extend({
         this.ball =new Ball(res.ball_png);
         this.ball.x =cc.winSize.width/2;
         this.ball.y =cc.winSize.height/2;
-        this.ball.setXY(4,-6);
+        this.ball.setXY(4,4);
         this.addChild(this.ball);
 
 
